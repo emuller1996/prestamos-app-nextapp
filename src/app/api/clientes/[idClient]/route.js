@@ -19,12 +19,10 @@ export async function PUT(request, { params }) {
   try {
     const data = await request.json();
 
-    console.log(request);
     const client = await prisma.clientes.update({
       where: { id: parseInt(params.idClient) },
       data,
     });
-    console.log(client);
     return NextResponse.json({
       cliente: client,
       message: "Cliente Actualizado",
