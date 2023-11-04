@@ -5,7 +5,7 @@ const prisma = new PrismaClient();
 
 export async function GET() {
   try {
-    const client = await prisma.clientes.findMany({});
+    const client = await prisma.clientes.findMany({ orderBy: { id: "asc" } });
     console.log(client);
     return NextResponse.json({ clientes: client });
   } catch (error) {

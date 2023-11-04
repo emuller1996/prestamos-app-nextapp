@@ -13,15 +13,14 @@ export default function Aside() {
     <div
       className={` ${
         open ? "w-72" : "w-20 "
-      } bg-green-800 h-screen p-5  pt-8 relative duration-300`}
+      } bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 h-screen p-5  pt-8 relative duration-300`}
     >
       <div
-        src="./src/assets/control.png"
-        className={`absolute cursor-pointer flex justify-center font-semibold p-2 text-green -right-3 top-5 w-7 border-green-700 bg-green-400
-           border-2 rounded-full  ${!open && "rotate-180"}`}
+        className={`absolute cursor-pointer flex justify-center font-semibold p-2 text-green -right-3 top-5 w-7 border-blue-700 bg-blue-200
+           border-1 rounded-md text-blue-950  ${!open && "rotate-180"}`}
         onClick={() => setOpen(!open)}
       >
-        <i className="fa-solid fa-chevron-left"></i>
+        <i className=" fa-solid fa-chevron-left"></i>
       </div>
       <div className="flex gap-x-4 items-center">
         {/* <img

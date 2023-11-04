@@ -1,10 +1,31 @@
-export default function Prestamos(props){
+"use client";
+import axios from "axios";
+import FormClientes from "../components/FormClientes";
+import { useEffect, useState } from "react";
 
-    console.log(props.params.ClienteId);
+export default function Prestamos(props) {
+  console.log(props.params.ClienteId);
 
-    
+  const [Cliente, setCliente] = useState(null);
 
-    return(
-        <h2>cliente ID {props.params.ClienteId}</h2>
-    )
+  useEffect(() => {
+    getClientById();
+  }, []);
+
+  const getClientById = async () => {
+    try {
+      const r = await axios.get(
+        `http://localhost:3000/api/clientes/${props.params.ClienteId}`
+      );
+      console.log(r);
+      setCliente(r.data.clientes);
+    } catch (error) {}
+  };
+
+  return (
+    <div>
+      <h2>cliente ID {props.params.ClienteId}</h2>
+      {Cliente && <FormClientes cliente={Cliente} />}
+    </div>
+  );
 }

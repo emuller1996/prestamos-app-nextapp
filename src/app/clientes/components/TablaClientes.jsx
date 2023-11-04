@@ -37,7 +37,7 @@ const columns = [
     name: "# ",
     cell: (row) => (
       <button className="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">
-        <Link href={`/clientes/${row.id}`}>editar</Link>
+        <Link href={`/clientes/${row.id}`}><i className="fa-solid fa-pen-to-square"></i></Link>
       </button>
     ),
   },
@@ -109,7 +109,6 @@ export default function TableClientes({ data }) {
           responsive
           pagination
           className="font-bold"
-          paginationPerPage={5}
           columns={columns}
           data={AllCliente && AllCliente}
         />
