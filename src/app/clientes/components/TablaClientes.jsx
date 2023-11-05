@@ -1,6 +1,7 @@
 "use client";
 import Spinner from "@/components/Spinner";
 import { ViewDollar } from "@/libs/utils";
+import { getAllClientesService } from "@/services/clientes.services";
 import axios from "axios";
 import Link from "next/link";
 import { useEffect, useState } from "react";
@@ -49,7 +50,7 @@ export default function TableClientes({ data }) {
   const getAllUser = async () => {
     setisLoading(true);
     try {
-      const r = await axios.get("http://localhost:3000/api/clientes");
+      const r = await getAllClientesService();
       console.log(r.data);
       setAllCliente(r.data.clientes);
       setisLoading(false);

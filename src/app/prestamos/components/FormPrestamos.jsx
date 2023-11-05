@@ -1,5 +1,7 @@
 "use client";
 import Spinner from "@/components/Spinner";
+import { getAllClientesService } from "@/services/clientes.services";
+import { postCreatePrestamosService } from "@/services/prestamos.services";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -19,7 +21,7 @@ export default function FormPrestamos() {
   const getAllCliente = async () => {
     setisLoadings(true);
     try {
-      const r = await axios.get("http://localhost:3000/api/clientes");
+      const r = await getAllClientesService();
       console.log(r.data);
       const te = r.data.clientes.map((c) => {
         return {
@@ -50,12 +52,11 @@ export default function FormPrestamos() {
     data.fecha_pago = new Date(data.fecha_pago).toISOString();
     console.log(data);
     try {
-      const t = await axios.post("http://localhost:3000/api/prestamos", data);
+      const t = await postCreatePrestamosService(data);
       console.log(t.data);
       reset();
       toast.success("Prestamo Creado");
-      router.push("/prestamos")
-
+      router.push("/prestamos");
     } catch (error) {
       console.log(error);
     }

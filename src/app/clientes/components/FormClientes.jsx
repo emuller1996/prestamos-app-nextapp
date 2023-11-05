@@ -1,7 +1,11 @@
-"use client"
+"use client";
 import Spinner from "@/components/Spinner";
+import {
+  postCreateClientesService,
+  putUpdateClientesService,
+} from "@/services/clientes.services";
 import axios from "axios";
-import { useRouter } from 'next/navigation'
+import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 
@@ -18,20 +22,17 @@ export default function FormClientes({ cliente }) {
     console.log(cliente);
     if (cliente) {
       try {
-        const t = await axios.put(
-          `http://localhost:3000/api/clientes/${cliente.id}`,
-          data
-        );
+        const t = await putUpdateClientesService(data);
         console.log(t.data);
         reset();
         toast.success(t.data.message);
-        router.push("/clientes")
+        router.push("/clientes");
       } catch (error) {
         console.log(error);
       }
     } else {
       try {
-        const t = await axios.post("http://localhost:3000/api/clientes", data);
+        const t = await postCreateClientesService(data);
         console.log(t.data);
         reset();
         toast.success("Cliente Registrado");

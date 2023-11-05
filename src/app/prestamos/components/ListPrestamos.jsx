@@ -1,6 +1,7 @@
 "use client";
 import Spinner from "@/components/Spinner";
 import { ViewDollar } from "@/libs/utils";
+import { getAllPrestamosService } from "@/services/prestamos.services";
 import axios from "axios";
 import Link from "next/link";
 import { useEffect, useState } from "react";
@@ -17,7 +18,7 @@ export default function ListPrestamos() {
   const getAllPrestamos = async () => {
     setisLoading(true);
     try {
-      const r = await axios.get("http://localhost:3000/api/prestamos");
+      const r = await getAllPrestamosService();
       console.log(r.data);
       setTodosPrestamos(r.data);
       setisLoading(false);

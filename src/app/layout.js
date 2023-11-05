@@ -5,6 +5,8 @@ import Aside from "@/components/Aside";
 import { Toaster } from "react-hot-toast";
 import Head from "next/head";
 import Link from "next/link";
+import axios from "axios";
+
 
 const inter = Inter({ subsets: ["latin"] });
 
