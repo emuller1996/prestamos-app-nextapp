@@ -1,3 +1,5 @@
+import axios from "@/libs/axios";
+
 export const getAllPrestamosService = async () => {
   return await axios.get(`/api/prestamos`, {
     /* headers: {
