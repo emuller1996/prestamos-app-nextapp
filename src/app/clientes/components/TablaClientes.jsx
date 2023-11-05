@@ -1,17 +1,10 @@
 "use client";
 import Spinner from "@/components/Spinner";
+import { ViewDollar } from "@/libs/utils";
 import axios from "axios";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import DataTable from "react-data-table-component";
-export function ViewDollar(strt) {
-  let USDollar = new Intl.NumberFormat("en-US", {
-    style: "currency",
-    currency: "COP",
-  });
-
-  return USDollar.format(strt);
-}
 
 const columns = [
   {
@@ -36,9 +29,11 @@ const columns = [
   {
     name: "# ",
     cell: (row) => (
-      <button className="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">
-        <Link href={`/clientes/${row.id}`}><i className="fa-solid fa-pen-to-square"></i></Link>
-      </button>
+      <Link href={`/clientes/${row.id}`}>
+        <button className="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">
+          <i className="fa-solid fa-pen-to-square"></i>
+        </button>
+      </Link>
     ),
   },
 ];

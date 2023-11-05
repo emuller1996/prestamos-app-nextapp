@@ -7,6 +7,7 @@ export async function GET(request, { params }) {
     console.log(params);
     const client = await prisma.clientes.findUnique({
       where: { id: parseInt(params.idClient) },
+      include: { Prestamos: true },
     });
     console.log(client);
     return NextResponse.json({ clientes: client });

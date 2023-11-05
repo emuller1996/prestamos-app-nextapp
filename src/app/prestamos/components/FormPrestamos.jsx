@@ -1,19 +1,22 @@
 "use client";
 import Spinner from "@/components/Spinner";
 import axios from "axios";
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import CurrencyInput from "react-currency-input-field";
 import { Controller, useForm } from "react-hook-form";
+import toast from "react-hot-toast";
 import Select from "react-select";
 export default function FormPrestamos() {
   const [AllCliente, setAllCliente] = useState(undefined);
   const [isLoadings, setisLoadings] = useState(false);
+  const router = useRouter();
 
   useEffect(() => {
-    getAllUser();
+    getAllCliente();
   }, []);
 
-  const getAllUser = async () => {
+  const getAllCliente = async () => {
     setisLoadings(true);
     try {
       const r = await axios.get("http://localhost:3000/api/clientes");
@@ -34,11 +37,6 @@ export default function FormPrestamos() {
     }
   };
 
-  const getAllClientes = async () => {
-    try {
-    } catch (error) {}
-  };
-
   const {
     register,
     handleSubmit,
@@ -48,30 +46,19 @@ export default function FormPrestamos() {
   } = useForm();
   const onSubmit = async (data) => {
     data.clienteId = data.clienteId.value;
+    data.valor_prestamo = parseInt(data.valor_prestamo);
+    data.fecha_pago = new Date(data.fecha_pago).toISOString();
     console.log(data);
-    /* if (cliente) {
-      try {
-        const t = await axios.put(
-          `http://localhost:3000/api/prestamos/${cliente.id}`,
-          data
-        );
-        console.log(t.data);
-        reset();
-        toast.success(t.data.message);
-        router.push("/clientes")
-      } catch (error) {
-        console.log(error);
-      }
-    } else { */
-    /* try {
+    try {
       const t = await axios.post("http://localhost:3000/api/prestamos", data);
       console.log(t.data);
       reset();
-      toast.success("Cliente Registrado");
+      toast.success("Prestamo Creado");
+      router.push("/prestamos")
+
     } catch (error) {
       console.log(error);
-    } */
-    /*  } */
+    }
   };
 
   return (
@@ -95,7 +82,7 @@ export default function FormPrestamos() {
                   control: () =>
                     "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500",
                 }}
-                inputRef={ref}
+                ref={ref}
                 options={AllCliente && AllCliente}
                 onChange={onChange}
                 name={name}

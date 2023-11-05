@@ -1,8 +1,9 @@
 import Link from "next/link";
+import ListPrestamos from "./components/ListPrestamos";
 
 export default function PrestamosPage() {
   return (
-    <div className="container">
+    <div className="container mx-auto">
       <div>Prestamos Pagina</div>
       <Link href={"/prestamos/nuevo"}>
         <button
@@ -12,6 +13,10 @@ export default function PrestamosPage() {
           Crear Prestamo
         </button>
       </Link>
+      <div>
+        <ListPrestamos />
+      </div>
+
     </div>
   );
 }
