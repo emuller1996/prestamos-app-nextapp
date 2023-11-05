@@ -31,7 +31,7 @@ const columns = [
     name: "# ",
     cell: (row) => (
       <Link href={`/clientes/${row.id}`}>
-        <button className="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">
+        <button className="text-white bg-gradient-to-r from-cyan-500 via-cyan-600 to-cyan-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-sm p-2 text-center mr-2 mb-2">
           <i className="fa-solid fa-pen-to-square"></i>
         </button>
       </Link>
@@ -102,6 +102,7 @@ export default function TableClientes({ data }) {
       {isLoading && <Spinner />}
       {AllCliente && (
         <DataTable
+          customStyles={{ cells: { style: { fontSize: "1.15em" } } }}
           responsive
           pagination
           className="font-bold"
