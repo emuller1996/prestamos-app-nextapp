@@ -2,6 +2,7 @@
 import axios from "axios";
 import FormClientes from "../components/FormClientes";
 import { useEffect, useState } from "react";
+import { getClientesByIdService } from "@/services/clientes.services";
 
 export default function Prestamos(props) {
   console.log(props.params.ClienteId);
@@ -10,14 +11,12 @@ export default function Prestamos(props) {
 
   useEffect(() => {
     getClientById();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const getClientById = async () => {
     try {
-      const r = await axios.get(
-        `http://localhost:3000/api/clientes/${props.params.ClienteId}`
-      );
+      const r = await getClientesByIdService(props.params.ClienteId);
       console.log(r);
       setCliente(r.data.clientes);
     } catch (error) {}

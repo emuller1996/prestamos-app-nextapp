@@ -6,6 +6,13 @@ export const getAllClientesService = async () => {
     }, */
   });
 };
+export const getClientesByIdService = async (id) => {
+  return await axios.get(`/api/clientes/${id}`, {
+    /* headers: {
+      Authorization: `Bearer ${token}`,
+    }, */
+  });
+};
 export const postCreateClientesService = async (data) => {
   return await axios.post(`/api/clientes`, data, {
     /* headers: {
