@@ -22,7 +22,7 @@ export default function FormClientes({ cliente }) {
     console.log(cliente);
     if (cliente) {
       try {
-        const t = await putUpdateClientesService(data);
+        const t = await putUpdateClientesService(cliente.id,data);
         console.log(t.data);
         reset();
         toast.success(t.data.message);
