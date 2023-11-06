@@ -1,5 +1,7 @@
-import prisma from "@/libs/prisma";
 import { NextResponse } from "next/server";
+import { PrismaClient } from "@prisma/client";
+
+const prisma = new PrismaClient();
 
 export async function GET() {
   try {
@@ -9,6 +11,7 @@ export async function GET() {
       },
       orderBy: { fecha_pago: "desc" },
     });
+    prisma.$disconnect()
     return NextResponse.json(pagos);
   } catch (error) {
     return NextResponse.error("Error al obtener modelos", 500);
