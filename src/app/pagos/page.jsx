@@ -1,10 +1,14 @@
+import TablePagos from "./components/TablePagos";
+
 export default function PagosPage(){
 
 
 
     return(
-        <div className="container">
-            <div>Pagos Pagina</div>
+        <div className="container mx-auto">
+            <div className="text-center mb-5">Todo los Pagos</div>
+            <hr />
+            <TablePagos />
         </div>
     )
 }

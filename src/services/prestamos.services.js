@@ -22,3 +22,10 @@ export const postCreatePrestamosService = async (data) => {
       }, */
   });
 };
+export const postCreatePagoPorPrestamosService = async (data) => {
+  return await axios.post(`/api/prestamos/${data.prestamoId}/pagos`, data, {
+    /* headers: {
+        Authorization: `Bearer ${token}`,
+      }, */
+  });
+};
