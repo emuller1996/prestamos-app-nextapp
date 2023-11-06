@@ -35,10 +35,14 @@ export default function TablePagos() {
 
   const getAllPagos = async () => {
     try {
+      setisLoading(true);
       const t = await getAllPagosService();
       console.log(t.data);
       setAllPagos(t.data);
+      setisLoading(false);
     } catch (error) {
+      setisLoading(false);
+
       console.log(error);
     }
   };
