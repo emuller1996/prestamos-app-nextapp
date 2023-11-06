@@ -1,6 +1,6 @@
+import prisma from "@/libs/prisma";
 import { NextResponse } from "next/server";
-import { PrismaClient } from "@prisma/client";
-const prisma = new PrismaClient();
+
 
 export async function GET() {
   try {
@@ -25,7 +25,7 @@ export async function POST(request) {
         valor_prestamo,
         fecha_pago,
         clientesId: clienteId,
-        deuda_actual: valor_prestamo,
+        deuda_actual: valor_prestamo+pago_interes,
         deuda_interes: 0,
         pago_interes,
         /* cliente: { connect: { id: clienteId } }, */
@@ -35,7 +35,7 @@ export async function POST(request) {
     const client = await prisma.clientes.findUnique({
       where: { id: clienteId },
     });
-    client.deuda_actual = client.deuda_actual + valor_prestamo;
+    client.deuda_actual = client.deuda_actual + valor_prestamo + pago_interes;
     console.log(client);
     await prisma.clientes.update({ where: { id: clienteId }, data: client });
     return NextResponse.json({

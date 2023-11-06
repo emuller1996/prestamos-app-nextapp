@@ -39,6 +39,13 @@ const columns = [
   },
 ];
 
+const paginationComponentOptions = {
+  rowsPerPageText: "Filas por página",
+  rangeSeparatorText: "de",
+  selectAllRowsItem: true,
+  selectAllRowsItemText: "Todos",
+};
+
 export default function TableClientes({ data }) {
   const [AllCliente, setAllCliente] = useState(undefined);
   const [isLoading, setisLoading] = useState(false);
@@ -102,9 +109,14 @@ export default function TableClientes({ data }) {
       {isLoading && <Spinner />}
       {AllCliente && (
         <DataTable
-          customStyles={{ cells: { style: { fontSize: "1.15em" } } }}
+          customStyles={{
+            cells: { style: { fontSize: "1.15em" } },
+            pagination: { style: { fontSize: "1em" } },
+            headCells: { style: { fontSize: "1.15em", fontWeight: "bolder" } },
+          }}
           responsive
           pagination
+          paginationComponentOptions={paginationComponentOptions}
           className="font-bold"
           columns={columns}
           data={AllCliente && AllCliente}

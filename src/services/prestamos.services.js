@@ -7,6 +7,13 @@ export const getAllPrestamosService = async () => {
       }, */
   });
 };
+export const getAllPrestamosByIdService = async (id) => {
+  return await axios.get(`/api/prestamos/${id}/`, {
+    /* headers: {
+        Authorization: `Bearer ${token}`,
+      }, */
+  });
+};
 
 export const postCreatePrestamosService = async (data) => {
   return await axios.post(`/api/prestamos`, data, {
