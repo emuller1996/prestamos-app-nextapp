@@ -42,7 +42,6 @@ export default function TablePagos() {
       setisLoading(false);
     } catch (error) {
       setisLoading(false);
-
       console.log(error);
     }
   };
