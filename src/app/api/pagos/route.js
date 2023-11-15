@@ -7,7 +7,7 @@ export async function GET() {
   try {
     const pagos = await prisma.pagos.findMany({
       include: {
-        prestamo: { include: true },
+        prestamo: { include: { cliente: true } },
       },
       orderBy: { fecha_pago: "desc" },
     });
