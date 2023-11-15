@@ -24,7 +24,8 @@ const columns = [
   },
   {
     name: "Deuda",
-    selector: (row) => `${ViewDollar(row.deuda_actual)}`,
+    selector: (row) => row.deuda_actual,
+    format: (row) => ViewDollar(row.deuda_actual),
     sortable: true,
   },
   {

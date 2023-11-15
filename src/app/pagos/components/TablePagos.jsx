@@ -20,7 +20,7 @@ const columns = [
   },
   {
     name: "Cliente",
-    selector: (row) => row.prestamo.cliente.nombre,
+    selector: (row) => row.prestamo?.cliente?.nombre,
     sortable: true,
   },
 ];
