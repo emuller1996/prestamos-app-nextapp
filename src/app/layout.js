@@ -31,7 +31,7 @@ export default function RootLayout({ children }) {
       <body className={inter.className}>
         <div className="flex">
           <Aside />
-          <div className="h-screen flex-1 p-7">{children}</div>
+          <div className="h-screen c overflow-x-hidden overflow-y-scroll flex-1 p-7">{children}</div>
         </div>
         {/* <NavBar/> */}
         <Toaster position="top-center" reverseOrder={false} />

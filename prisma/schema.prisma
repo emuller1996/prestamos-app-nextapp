@@ -17,9 +17,10 @@ datasource db {
 }
 
 model User {
-  id    Int     @id @default(autoincrement())
-  email String  @unique
-  name  String?
+  id       Int     @id @default(autoincrement())
+  email    String  @unique
+  name     String?
+  password String
 }
 
 model Clientes {
@@ -39,7 +40,8 @@ model Prestamos {
   deuda_actual      Float?
   deuda_capital     Float?
   deuda_interes     Float?
-  pago_interes     Float?
+  estado            String? 
+  pago_interes      Float?
   fecha_ultimo_pago DateTime?
   fecha_pago        DateTime
   createdAt         DateTime  @default(now())

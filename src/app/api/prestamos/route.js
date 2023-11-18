@@ -2,12 +2,14 @@ import prisma from "@/libs/prisma";
 import { NextResponse } from "next/server";
 
 
-export async function GET() {
+export async function GET(request) {
   try {
+    console.log(request.json());
     const prestamos = await prisma.prestamos.findMany({
       include: {
         cliente: true,
       },
+      where:{ estado:"Pendiente"}
     });
     return NextResponse.json(prestamos);
   } catch (error) {

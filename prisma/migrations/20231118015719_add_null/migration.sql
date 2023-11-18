@@ -1,0 +1,3 @@
+-- AlterTable
+ALTER TABLE "Prestamos" ALTER COLUMN "estado" DROP NOT NULL,
+ALTER COLUMN "estado" DROP DEFAULT;
