@@ -40,7 +40,7 @@ model Prestamos {
   deuda_actual      Float?
   deuda_capital     Float?
   deuda_interes     Float?
-  estado            String? 
+  estado            String?   @default("Pendiente")
   pago_interes      Float?
   fecha_ultimo_pago DateTime?
   fecha_pago        DateTime
