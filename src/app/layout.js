@@ -1,11 +1,8 @@
-import NavBar from "@/components/NavBar";
 import "./globals.css";
 import { Inter } from "next/font/google";
 import Aside from "@/components/Aside";
 import { Toaster } from "react-hot-toast";
-import Head from "next/head";
-import Link from "next/link";
-import axios from "axios";
+
 
 
 const inter = Inter({ subsets: ["latin"] });
@@ -30,10 +27,10 @@ export default function RootLayout({ children }) {
 
       <body className={inter.className}>
         <div className="flex">
-          <Aside />
+          {/* <Aside /> */}
           <div className="h-screen c overflow-x-hidden overflow-y-scroll flex-1 p-7">{children}</div>
         </div>
-        {/* <NavBar/> */}
+
         <Toaster position="top-center" reverseOrder={false} />
       </body>
     </html>

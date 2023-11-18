@@ -1,7 +1,6 @@
 "use client";
 import Link from "next/link";
 import { useState } from "react";
-//import "./Aside.css"
 
 export default  function Aside() {
   const [open, setOpen] = useState(true);

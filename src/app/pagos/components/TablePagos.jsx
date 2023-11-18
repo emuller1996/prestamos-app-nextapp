@@ -25,7 +25,7 @@ const columns = [
   },
 ];
 
-export default function TablePagos() {
+export default  function TablePagos() {
   const [AllPagos, setAllPagos] = useState(null);
   const [isLoading, setisLoading] = useState(false);
 
