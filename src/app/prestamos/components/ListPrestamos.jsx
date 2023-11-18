@@ -36,7 +36,7 @@ export default function ListPrestamos() {
         {TodosPrestamos &&
           TodosPrestamos.map((p) => (
             <div
-              className="card cursor-pointer hover:bg-blue-200 hover:border-blue-400 text-blue-950 border border-blue-300 shadow-sm bg-blue-100 p-3 rounded-xl"
+              className="card cursor-pointer hover:shadow-xl hover:shadow-blue-200 h hover:bg-blue-200 hover:border-blue-400 text-blue-950 border border-blue-300 shadow-sm bg-blue-100 p-3 rounded-xl"
               key={p.id}
             >
               <div className="flex md:justify-around  gap-2 flex-wrap">
@@ -53,6 +53,13 @@ export default function ListPrestamos() {
                   0,
                   10
                 )}`}</span>
+              </div>
+
+              <div className="flex justify-end mt-2">
+                <div className="border-2 border-sky-300  uppercase select-none bg-sky-600 text-sky-50 shadow-sm p-2 rounded-2xl text-sm">
+                  {p?.estado}
+                </div>
+
               </div>
               <div className="mx-auto text-center mt-2">
                 <Link href={`/prestamos/${p.id}`}>
