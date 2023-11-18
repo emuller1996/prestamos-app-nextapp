@@ -1,9 +1,9 @@
 "use client";
 import Link from "next/link";
 import { useState } from "react";
-import "./Aside.css"
+//import "./Aside.css"
 
-export default function Aside() {
+export default  function Aside() {
   const [open, setOpen] = useState(true);
   const Menus = [
     { title: "Clientes", value: "/clientes", src: "Chart_fill" },
