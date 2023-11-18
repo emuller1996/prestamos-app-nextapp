@@ -1,8 +1,9 @@
 "use client";
 import Link from "next/link";
 import { useState } from "react";
+//import "./Aside.css"
 
-export default function Aside() {
+export default  function Aside() {
   const [open, setOpen] = useState(true);
   const Menus = [
     { title: "Clientes", value: "/clientes", src: "Chart_fill" },
@@ -13,7 +14,7 @@ export default function Aside() {
     <div
       className={` ${
         open ? "w-72" : "w-20 "
-      } bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 h-screen p-5  pt-8 relative duration-300`}
+      } bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 h-screen contenido p-5  pt-8 relative duration-300`}
     >
       <div
         className={`absolute cursor-pointer flex justify-center font-semibold p-2 text-green -right-3 top-5 w-7 border-blue-700 bg-blue-200

@@ -1,7 +1,6 @@
 import prisma from "@/libs/prisma";
 import { NextResponse } from "next/server";
 
-
 export async function GET() {
   try {
     const prestamos = await prisma.prestamos.findMany({
@@ -25,7 +24,7 @@ export async function POST(request) {
         valor_prestamo,
         fecha_pago,
         clientesId: clienteId,
-        deuda_actual: valor_prestamo+pago_interes,
+        deuda_actual: valor_prestamo + pago_interes,
         deuda_interes: 0,
         pago_interes,
         /* cliente: { connect: { id: clienteId } }, */
